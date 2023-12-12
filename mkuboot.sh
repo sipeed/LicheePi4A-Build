@@ -19,15 +19,21 @@ then
 	export CROSS_COMPILE="riscv64-unknown-linux-gnu-"
 fi
 
+if [ -z "$COMMIT" ]
+then
+	export COMMIT="918a8c89e056e3462031d6a498bb4fcc0c3526ce"
+fi
+
 set -eux
 
 if [ ! -e build/uboot ] 
 then
 	git clone $URL build/uboot --branch=${BRANCH}
 	cd build/uboot
+	git reset --hard $COMMIT
 	find ../../uboot/ -name *.patch | sort | while read line
 	do
-		patch -p1 < $line
+		git am $line
 	done
 	cd ../../
 fi
