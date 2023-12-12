@@ -1,0 +1,49 @@
+From aea3217b1eddb26dc32a83b59303507ab7243bee Mon Sep 17 00:00:00 2001
+From: Lu Hui <luhui@sipeed.com>
+Date: Mon, 6 Nov 2023 15:14:32 +0800
+Subject: [PATCH 6/8] riscv: dts: light-lpi4a-console: enable DSI support
+
+---
+ arch/riscv/dts/light-lpi4a-console.dts |  5 +++++
+ arch/riscv/dts/light-lpi4a-laptop.dts  | 10 ++++++++++
+ 2 files changed, 15 insertions(+)
+
+diff --git a/arch/riscv/dts/light-lpi4a-console.dts b/arch/riscv/dts/light-lpi4a-console.dts
+index 086802d0..d134e8b5 100644
+--- a/arch/riscv/dts/light-lpi4a-console.dts
++++ b/arch/riscv/dts/light-lpi4a-console.dts
+@@ -1 +1,6 @@
+ #include "light-lpi4a-laptop.dts"
++
++&panel0 {
++	compatible      = "mingjun,mj070bi30ia2";
++	status = "okay";
++};
+diff --git a/arch/riscv/dts/light-lpi4a-laptop.dts b/arch/riscv/dts/light-lpi4a-laptop.dts
+index 3cdf24b3..23b33b5d 100644
+--- a/arch/riscv/dts/light-lpi4a-laptop.dts
++++ b/arch/riscv/dts/light-lpi4a-laptop.dts
+@@ -1,5 +1,14 @@
+ #include "light-lpi4a.dts"
+ 
++&i2c3 {
++	pcal6408ahk_d: gpio@20 {
++		compatible = "nxp,pca9557";
++		reg = <0x18>;
++                gpio-controller;
++                #gpio-cells = <2>;
++        };
++};
++
+ &spi0 {
+ 	status = "disabled";
+ };
+@@ -18,4 +27,5 @@
+ 
+ &panel0 {
+ 	status = "disabled";
++	reset-gpio = <&pcal6408ahk_d 7 0>;
+ };
+-- 
+2.34.1
+

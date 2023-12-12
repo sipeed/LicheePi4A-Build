@@ -1,0 +1,25 @@
+From 3ad2d86ddf81d4c24064d747973a3da92edeb828 Mon Sep 17 00:00:00 2001
+From: Lu Hui <luhui@sipeed.com>
+Date: Mon, 6 Nov 2023 09:54:01 +0800
+Subject: [PATCH 2/2] riscv: dts: light-lpi4a.dts: allow panel ref
+
+---
+ arch/riscv/dts/light-lpi4a.dts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/riscv/dts/light-lpi4a.dts b/arch/riscv/dts/light-lpi4a.dts
+index 227f5a29..9afad620 100644
+--- a/arch/riscv/dts/light-lpi4a.dts
++++ b/arch/riscv/dts/light-lpi4a.dts
+@@ -472,7 +472,7 @@
+ 			default-brightness-level = <7>;
+ 		};
+ 
+-		ili9881c_panel {
++		panel0: dsi_panel0 {
+ 			compatible      = "ilitek,ili9881c";
+ 			backlight       = <&lcd_backlight>;
+ 			reset-gpios     = <&gpio1_porta 5 1>;   /* active low  */
+-- 
+2.34.1
+

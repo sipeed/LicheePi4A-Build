@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=camera-test
+Path=/opt/
+Exec=/opt/camera-show.sh
+Terminal=true

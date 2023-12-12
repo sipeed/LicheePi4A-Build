@@ -1,0 +1,8 @@
+[Unit]
+Description=sipeed userspace driver daemon
+
+[Service]
+ExecStart=/opt/sipeed-ec-daemon /dev/ttyS3 921600
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,27 @@
+From 9731ddff0583fc2c08e25de102c7d25d778bd404 Mon Sep 17 00:00:00 2001
+From: Lu Hui <luhui@sipeed.com>
+Date: Thu, 16 Nov 2023 18:31:01 +0800
+Subject: [PATCH 15/15] light_lpi4a_console_defconfig: disable dsi
+
+---
+ configs/light_lpi4a_console_defconfig | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/configs/light_lpi4a_console_defconfig b/configs/light_lpi4a_console_defconfig
+index 6f7dc7e6..a23c0671 100644
+--- a/configs/light_lpi4a_console_defconfig
++++ b/configs/light_lpi4a_console_defconfig
+@@ -98,8 +98,8 @@ CONFIG_CMD_BMP=y
+ CONFIG_VIDEO_BRIDGE=y
+ CONFIG_DM_PCA953X=y
+ CONFIG_VIDEO_VS_DPU=y
+-# CONFIG_VIDEO_LCD_ILITEK_ILI9881C is not set
+-CONFIG_VIDEO_LCD_MINGJUN_070BI30IA2=y
++CONFIG_VIDEO_LCD_ILITEK_ILI9881C=y
++# CONFIG_VIDEO_LCD_MINGJUN_070BI30IA2 is not set
+ CONFIG_VIDEO_LCD_CUSTOM_LOGO=y
+ CONFIG_SYS_CONSOLE_ENV_OVERWRITE=y
+ CONFIG_VIDEO_DW_DSI_LIGHT=y
+-- 
+2.34.1
+

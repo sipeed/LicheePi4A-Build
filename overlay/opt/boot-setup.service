@@ -1,0 +1,10 @@
+[Unit]
+Description=boot setup
+
+[Service]
+ExecStart=/opt/boot-setup.sh
+Type=oneshot
+RemainAfterExit=no
+
+[Install]
+WantedBy=multi-user.target

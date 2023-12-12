@@ -1,0 +1,52 @@
+From 30a348e1a0f3ab5ea9d863938920d3255eb4bbcf Mon Sep 17 00:00:00 2001
+From: Lu Hui <luhui@sipeed.com>
+Date: Mon, 27 Nov 2023 18:36:24 +0800
+Subject: [PATCH 25/25] Revert "configs: add default bootdelay"
+
+This reverts commit 9eeb14ccd24bb8af068e29214a4168388e96fb5c.
+---
+ configs/light_lpi4a_console_16g_defconfig    | 1 -
+ configs/light_lpi4a_console_defconfig        | 1 -
+ configs/light_lpi4a_z14inch_m0_16g_defconfig | 1 -
+ configs/light_lpi4a_z14inch_m0_defconfig     | 1 -
+ 4 files changed, 4 deletions(-)
+
+diff --git a/configs/light_lpi4a_console_16g_defconfig b/configs/light_lpi4a_console_16g_defconfig
+index 5f8848d8..c72a802d 100644
+--- a/configs/light_lpi4a_console_16g_defconfig
++++ b/configs/light_lpi4a_console_16g_defconfig
+@@ -108,4 +108,3 @@ CONFIG_DDR_REGU_0V6=600000
+ CONFIG_DDR_REGU_0V8=800000
+ CONFIG_DDR_REGU_1V1=1100000
+ CONFIG_DDR_ROW16=y
+-CONFIG_BOOTDELAY="5"
+diff --git a/configs/light_lpi4a_console_defconfig b/configs/light_lpi4a_console_defconfig
+index afa963b9..24e6a115 100644
+--- a/configs/light_lpi4a_console_defconfig
++++ b/configs/light_lpi4a_console_defconfig
+@@ -107,4 +107,3 @@ CONFIG_PMIC_VOL_INIT=y
+ CONFIG_DDR_REGU_0V6=600000
+ CONFIG_DDR_REGU_0V8=800000
+ CONFIG_DDR_REGU_1V1=1100000
+-CONFIG_BOOTDELAY="5"
+diff --git a/configs/light_lpi4a_z14inch_m0_16g_defconfig b/configs/light_lpi4a_z14inch_m0_16g_defconfig
+index da88be74..ad368f1c 100644
+--- a/configs/light_lpi4a_z14inch_m0_16g_defconfig
++++ b/configs/light_lpi4a_z14inch_m0_16g_defconfig
+@@ -108,4 +108,3 @@ CONFIG_DDR_REGU_0V6=600000
+ CONFIG_DDR_REGU_0V8=800000
+ CONFIG_DDR_REGU_1V1=1100000
+ CONFIG_DDR_ROW16=y
+-CONFIG_BOOTDELAY="10"
+diff --git a/configs/light_lpi4a_z14inch_m0_defconfig b/configs/light_lpi4a_z14inch_m0_defconfig
+index df21cbf3..67e34fb2 100644
+--- a/configs/light_lpi4a_z14inch_m0_defconfig
++++ b/configs/light_lpi4a_z14inch_m0_defconfig
+@@ -107,4 +107,3 @@ CONFIG_PMIC_VOL_INIT=y
+ CONFIG_DDR_REGU_0V6=600000
+ CONFIG_DDR_REGU_0V8=800000
+ CONFIG_DDR_REGU_1V1=1100000
+-CONFIG_BOOTDELAY="10"
+-- 
+2.34.1
+

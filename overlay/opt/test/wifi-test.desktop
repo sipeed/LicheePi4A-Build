@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=wifi-test
+Path=/opt/
+Exec=/opt/wifi-test.sh
+Terminal=true

@@ -1,0 +1,89 @@
+From 9d2a293e7bf91f127fbc24f7575f25063b47868d Mon Sep 17 00:00:00 2001
+From: Lu Hui <luhui@sipeed.com>
+Date: Fri, 17 Nov 2023 18:06:55 +0800
+Subject: [PATCH 19/19] light: restore config
+
+---
+ configs/light_lpi4a_console_16g_defconfig    | 7 +++++++
+ configs/light_lpi4a_console_defconfig        | 7 +++++++
+ configs/light_lpi4a_z14inch_m0_16g_defconfig | 5 ++---
+ configs/light_lpi4a_z14inch_m0_defconfig     | 5 ++---
+ 4 files changed, 18 insertions(+), 6 deletions(-)
+
+diff --git a/configs/light_lpi4a_console_16g_defconfig b/configs/light_lpi4a_console_16g_defconfig
+index 4862b83e..24d9aeed 100644
+--- a/configs/light_lpi4a_console_16g_defconfig
++++ b/configs/light_lpi4a_console_16g_defconfig
+@@ -96,6 +96,13 @@ CONFIG_REGMAP=y
+ CONFIG_SYSCON=y
+ CONFIG_CMD_BMP=y
+ CONFIG_DM_PCA953X=y
++ONFIG_VIDEO_BRIDGE=y
++CONFIG_VIDEO_VS_DPU=y
++CONFIG_VIDEO_LCD_ILITEK_ILI9881C=y
++CONFIG_VIDEO_DW_DSI_LIGHT=y
++CONFIG_VIDEO_DW_DPHY=y
++CONFIG_VIDEO_DW_DSI_HOST=y
++CONFIG_SYS_WHITE_ON_BLACK=y
+ CONFIG_PMIC_VOL_INIT=y
+ CONFIG_DDR_REGU_0V6=600000
+ CONFIG_DDR_REGU_0V8=800000
+diff --git a/configs/light_lpi4a_console_defconfig b/configs/light_lpi4a_console_defconfig
+index 06da945a..2ef604fe 100644
+--- a/configs/light_lpi4a_console_defconfig
++++ b/configs/light_lpi4a_console_defconfig
+@@ -91,6 +91,13 @@ CONFIG_DEFAULT_FDT_FILE="thead/light-lpi4a-console.dtb"
+ CONFIG_BOARD_LATE_INIT=y
+ CONFIG_ENV_VARS_UBOOT_RUNTIME_CONFIG=y
+ CONFIG_DM_VIDEO=y
++ONFIG_VIDEO_BRIDGE=y
++CONFIG_VIDEO_VS_DPU=y
++CONFIG_VIDEO_LCD_ILITEK_ILI9881C=y
++CONFIG_VIDEO_DW_DSI_LIGHT=y
++CONFIG_VIDEO_DW_DPHY=y
++CONFIG_VIDEO_DW_DSI_HOST=y
++CONFIG_SYS_WHITE_ON_BLACK=y
+ CONFIG_PHY=y
+ CONFIG_REGMAP=y
+ CONFIG_SYSCON=y
+diff --git a/configs/light_lpi4a_z14inch_m0_16g_defconfig b/configs/light_lpi4a_z14inch_m0_16g_defconfig
+index 65fa6f42..ad368f1c 100644
+--- a/configs/light_lpi4a_z14inch_m0_16g_defconfig
++++ b/configs/light_lpi4a_z14inch_m0_16g_defconfig
+@@ -98,12 +98,11 @@ CONFIG_CMD_BMP=y
+ CONFIG_VIDEO_BRIDGE=y
+ CONFIG_DM_PCA953X=y
+ CONFIG_VIDEO_VS_DPU=y
+-CONFIG_SYS_CONSOLE_ENV_OVERWRITE=y
+-CONFIG_VIDEO_LCD_MINGJUN_070BI30IA2=y
++CONFIG_VIDEO_LCD_ILITEK_ILI9881C=y
+ CONFIG_VIDEO_DW_DSI_LIGHT=y
+ CONFIG_VIDEO_DW_DPHY=y
+ CONFIG_VIDEO_DW_DSI_HOST=y
+-# CONFIG_SYS_WHITE_ON_BLACK is not set
++CONFIG_SYS_WHITE_ON_BLACK=y
+ CONFIG_PMIC_VOL_INIT=y
+ CONFIG_DDR_REGU_0V6=600000
+ CONFIG_DDR_REGU_0V8=800000
+diff --git a/configs/light_lpi4a_z14inch_m0_defconfig b/configs/light_lpi4a_z14inch_m0_defconfig
+index 4367df7f..67e34fb2 100644
+--- a/configs/light_lpi4a_z14inch_m0_defconfig
++++ b/configs/light_lpi4a_z14inch_m0_defconfig
+@@ -98,12 +98,11 @@ CONFIG_CMD_BMP=y
+ CONFIG_VIDEO_BRIDGE=y
+ CONFIG_DM_PCA953X=y
+ CONFIG_VIDEO_VS_DPU=y
+-CONFIG_SYS_CONSOLE_ENV_OVERWRITE=y
+-CONFIG_VIDEO_LCD_MINGJUN_070BI30IA2=y
++CONFIG_VIDEO_LCD_ILITEK_ILI9881C=y
+ CONFIG_VIDEO_DW_DSI_LIGHT=y
+ CONFIG_VIDEO_DW_DPHY=y
+ CONFIG_VIDEO_DW_DSI_HOST=y
+-# CONFIG_SYS_WHITE_ON_BLACK is not set
++CONFIG_SYS_WHITE_ON_BLACK=y
+ CONFIG_PMIC_VOL_INIT=y
+ CONFIG_DDR_REGU_0V6=600000
+ CONFIG_DDR_REGU_0V8=800000
+-- 
+2.34.1
+

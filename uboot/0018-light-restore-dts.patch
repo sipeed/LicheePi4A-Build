@@ -1,0 +1,60 @@
+From 40d906f195da6dfafb74d62d8c8249a63b263723 Mon Sep 17 00:00:00 2001
+From: Lu Hui <luhui@sipeed.com>
+Date: Fri, 17 Nov 2023 18:03:25 +0800
+Subject: [PATCH 18/19] light: restore dts
+
+---
+ arch/riscv/dts/light-lpi4a-console.dts |  5 -----
+ arch/riscv/dts/light-lpi4a-laptop.dts  | 30 --------------------------
+ 2 files changed, 35 deletions(-)
+
+diff --git a/arch/riscv/dts/light-lpi4a-console.dts b/arch/riscv/dts/light-lpi4a-console.dts
+index d134e8b5..086802d0 100644
+--- a/arch/riscv/dts/light-lpi4a-console.dts
++++ b/arch/riscv/dts/light-lpi4a-console.dts
+@@ -1,6 +1 @@
+ #include "light-lpi4a-laptop.dts"
+-
+-&panel0 {
+-	compatible      = "mingjun,mj070bi30ia2";
+-	status = "okay";
+-};
+diff --git a/arch/riscv/dts/light-lpi4a-laptop.dts b/arch/riscv/dts/light-lpi4a-laptop.dts
+index 23b33b5d..2c598acb 100644
+--- a/arch/riscv/dts/light-lpi4a-laptop.dts
++++ b/arch/riscv/dts/light-lpi4a-laptop.dts
+@@ -1,31 +1 @@
+ #include "light-lpi4a.dts"
+-
+-&i2c3 {
+-	pcal6408ahk_d: gpio@20 {
+-		compatible = "nxp,pca9557";
+-		reg = <0x18>;
+-                gpio-controller;
+-                #gpio-cells = <2>;
+-        };
+-};
+-
+-&spi0 {
+-	status = "disabled";
+-};
+-
+-&qspi0 {
+-	status = "disabled";
+-};
+-
+-&qspi1 {
+-	status = "disabled";
+-};
+-
+-&pcal6408ahk_a {
+-	status = "disabled";
+-};
+-
+-&panel0 {
+-	status = "disabled";
+-	reset-gpio = <&pcal6408ahk_d 7 0>;
+-};
+-- 
+2.34.1
+

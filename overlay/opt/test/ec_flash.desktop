@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=burn-ec
+Path=/opt/
+Exec=/opt/ec_flash.sh
+Terminal=true

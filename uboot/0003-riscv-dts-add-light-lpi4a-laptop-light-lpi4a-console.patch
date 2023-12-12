@@ -1,0 +1,63 @@
+From 9c4a0d5dfca69b2515d66e3c0df64e1328e78eed Mon Sep 17 00:00:00 2001
+From: Lu Hui <luhui@sipeed.com>
+Date: Mon, 6 Nov 2023 10:09:18 +0800
+Subject: [PATCH 3/4] riscv: dts: add light-lpi4a-laptop & light-lpi4a-console
+
+---
+ arch/riscv/dts/Makefile                |  2 +-
+ arch/riscv/dts/light-lpi4a-console.dts |  1 +
+ arch/riscv/dts/light-lpi4a-laptop.dts  | 21 +++++++++++++++++++++
+ 3 files changed, 23 insertions(+), 1 deletion(-)
+ create mode 100644 arch/riscv/dts/light-lpi4a-console.dts
+ create mode 100644 arch/riscv/dts/light-lpi4a-laptop.dts
+
+diff --git a/arch/riscv/dts/Makefile b/arch/riscv/dts/Makefile
+index 69c7787f..7f9b5b67 100644
+--- a/arch/riscv/dts/Makefile
++++ b/arch/riscv/dts/Makefile
+@@ -5,7 +5,7 @@ dtb-$(CONFIG_TARGET_SIFIVE_FU540) += hifive-unleashed-a00.dtb
+ dtb-$(CONFIG_TARGET_ICE_C910) += ice-c910.dtb
+ dtb-$(CONFIG_TARGET_LIGHT_EVB_MPW_C910) += light-evb-mpw-c910.dtb
+ dtb-$(CONFIG_TARGET_LIGHT_FPGA_FM_C910) += light-fpga-fm-c910.dtb
+-dtb-$(CONFIG_TARGET_LIGHT_C910) += light-a-ref.dtb light-b-ref.dtb light-a-val.dtb light-b-product.dtb light-a-product.dtb light-ant-ref.dtb light-beagle.dtb light-b-power.dtb light-lpi4a.dtb
++dtb-$(CONFIG_TARGET_LIGHT_C910) += light-a-ref.dtb light-b-ref.dtb light-a-val.dtb light-b-product.dtb light-a-product.dtb light-ant-ref.dtb light-beagle.dtb light-b-power.dtb light-lpi4a.dtb light-lpi4a-laptop.dtb light-lpi4a-console.dtb
+ 
+ targets += $(dtb-y)
+ 
+diff --git a/arch/riscv/dts/light-lpi4a-console.dts b/arch/riscv/dts/light-lpi4a-console.dts
+new file mode 100644
+index 00000000..086802d0
+--- /dev/null
++++ b/arch/riscv/dts/light-lpi4a-console.dts
+@@ -0,0 +1 @@
++#include "light-lpi4a-laptop.dts"
+diff --git a/arch/riscv/dts/light-lpi4a-laptop.dts b/arch/riscv/dts/light-lpi4a-laptop.dts
+new file mode 100644
+index 00000000..3cdf24b3
+--- /dev/null
++++ b/arch/riscv/dts/light-lpi4a-laptop.dts
+@@ -0,0 +1,21 @@
++#include "light-lpi4a.dts"
++
++&spi0 {
++	status = "disabled";
++};
++
++&qspi0 {
++	status = "disabled";
++};
++
++&qspi1 {
++	status = "disabled";
++};
++
++&pcal6408ahk_a {
++	status = "disabled";
++};
++
++&panel0 {
++	status = "disabled";
++};
+-- 
+2.34.1
+

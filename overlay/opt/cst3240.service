@@ -1,0 +1,8 @@
+[Unit]
+Description=cst3240 touchpad userspace driver
+
+[Service]
+ExecStart=/opt/cst3240-uinput
+
+[Install]
+WantedBy=multi-user.target

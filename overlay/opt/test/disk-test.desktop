@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=disk-test
+Path=/opt/
+Exec=/opt/disk-test.sh
+Terminal=true

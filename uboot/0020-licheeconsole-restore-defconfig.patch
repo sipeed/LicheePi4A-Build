@@ -1,0 +1,65 @@
+From 31cc7d9d4d6be72d0a906f7bc2e831a42b4ce331 Mon Sep 17 00:00:00 2001
+From: Lu Hui <luhui@sipeed.com>
+Date: Tue, 21 Nov 2023 15:07:22 +0800
+Subject: [PATCH 20/20] licheeconsole: restore defconfig
+
+---
+ configs/light_lpi4a_console_16g_defconfig |  2 +-
+ configs/light_lpi4a_console_defconfig     | 14 +++++++-------
+ 2 files changed, 8 insertions(+), 8 deletions(-)
+
+diff --git a/configs/light_lpi4a_console_16g_defconfig b/configs/light_lpi4a_console_16g_defconfig
+index 24d9aeed..c72a802d 100644
+--- a/configs/light_lpi4a_console_16g_defconfig
++++ b/configs/light_lpi4a_console_16g_defconfig
+@@ -95,8 +95,8 @@ CONFIG_PHY=y
+ CONFIG_REGMAP=y
+ CONFIG_SYSCON=y
+ CONFIG_CMD_BMP=y
++CONFIG_VIDEO_BRIDGE=y
+ CONFIG_DM_PCA953X=y
+-ONFIG_VIDEO_BRIDGE=y
+ CONFIG_VIDEO_VS_DPU=y
+ CONFIG_VIDEO_LCD_ILITEK_ILI9881C=y
+ CONFIG_VIDEO_DW_DSI_LIGHT=y
+diff --git a/configs/light_lpi4a_console_defconfig b/configs/light_lpi4a_console_defconfig
+index 2ef604fe..24e6a115 100644
+--- a/configs/light_lpi4a_console_defconfig
++++ b/configs/light_lpi4a_console_defconfig
+@@ -18,7 +18,7 @@ CONFIG_DISPLAY_BOARDINFO=y
+ # CONFIG_SPL_LEGACY_IMAGE_SUPPORT is not set
+ CONFIG_SPL_RAM_SUPPORT=y
+ CONFIG_SPL_RAM_DEVICE=y
+-CONFIG_SYS_PROMPT="LicheeConsole4A #"
++CONFIG_SYS_PROMPT="LicheeConsole4A # "
+ CONFIG_DDR_LP4X_3733_DUALRANK=y
+ # CONFIG_DDR_LP4_3733_DUALRANK is not set
+ CONFIG_DDR_BOARD_CONFIG=y
+@@ -91,18 +91,18 @@ CONFIG_DEFAULT_FDT_FILE="thead/light-lpi4a-console.dtb"
+ CONFIG_BOARD_LATE_INIT=y
+ CONFIG_ENV_VARS_UBOOT_RUNTIME_CONFIG=y
+ CONFIG_DM_VIDEO=y
+-ONFIG_VIDEO_BRIDGE=y
++CONFIG_PHY=y
++CONFIG_REGMAP=y
++CONFIG_SYSCON=y
++CONFIG_CMD_BMP=y
++CONFIG_VIDEO_BRIDGE=y
++CONFIG_DM_PCA953X=y
+ CONFIG_VIDEO_VS_DPU=y
+ CONFIG_VIDEO_LCD_ILITEK_ILI9881C=y
+ CONFIG_VIDEO_DW_DSI_LIGHT=y
+ CONFIG_VIDEO_DW_DPHY=y
+ CONFIG_VIDEO_DW_DSI_HOST=y
+ CONFIG_SYS_WHITE_ON_BLACK=y
+-CONFIG_PHY=y
+-CONFIG_REGMAP=y
+-CONFIG_SYSCON=y
+-CONFIG_CMD_BMP=y
+-CONFIG_DM_PCA953X=y
+ CONFIG_PMIC_VOL_INIT=y
+ CONFIG_DDR_REGU_0V6=600000
+ CONFIG_DDR_REGU_0V8=800000
+-- 
+2.34.1
+

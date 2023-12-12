@@ -1,0 +1,60 @@
+From 780812a4030ea827cc1ad9634af6316c943bbe47 Mon Sep 17 00:00:00 2001
+From: Lu Hui <luhui@sipeed.com>
+Date: Fri, 24 Nov 2023 13:50:28 +0800
+Subject: [PATCH 22/22] dts: lpi4a-laptop: rewrite lcd & backlight
+
+---
+ arch/riscv/dts/light-lpi4a-laptop.dts | 42 +++++++++++++++++++++++++++
+ 1 file changed, 42 insertions(+)
+
+diff --git a/arch/riscv/dts/light-lpi4a-laptop.dts b/arch/riscv/dts/light-lpi4a-laptop.dts
+index 2c598acb..45deb1a9 100644
+--- a/arch/riscv/dts/light-lpi4a-laptop.dts
++++ b/arch/riscv/dts/light-lpi4a-laptop.dts
+@@ -1 +1,43 @@
+ #include "light-lpi4a.dts"
++
++/ {
++};
++
++&i2c1 {
++	clock-frequency = <400000>;
++        status = "okay";
++
++        pcal6408ahk_c: gpio@20 {
++                compatible = "nxp,pca9557";
++                reg = <0x18>;
++                gpio-controller;
++                #gpio-cells = <2>;
++        };
++};
++
++&i2c3 {
++	clock-frequency = <400000>;
++	status = "okay";
++	pcal6408ahk_d: gpio@20 {
++		compatible = "nxp,pca9557";
++		reg = <0x18>;
++		gpio-controller;
++		#gpio-cells = <2>;
++	};
++};
++
++&lcd_backlight {
++	pwms = <&pwm 0 50000>;
++	brightness-levels = <0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35
++	36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75
++	76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100>;
++	default-brightness-level = <2>;
++};
++
++&panel0 {
++	status = "disabled";
++	backlight       = <&lcd_backlight>;
++	reset-gpios     = <&pcal6408ahk_d 7 0>; /* active low  */
++	/delete-property/ lcd-en-gpios;
++	/delete-property/ lcd-bias-en-gpios;
++};
+-- 
+2.34.1
+

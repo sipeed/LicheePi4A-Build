@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=eth-test
+Path=/opt/
+Exec=/opt/eth-test.sh
+Terminal=true

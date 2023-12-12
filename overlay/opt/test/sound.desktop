@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=sound-test
+Path=/tmp/
+Exec=/opt/aplay-test.sh
+Terminal=true

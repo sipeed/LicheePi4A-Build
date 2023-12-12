@@ -1,0 +1,34 @@
+From 4601ba807c1413b266f4b0d5d77aeff68d0ca4be Mon Sep 17 00:00:00 2001
+From: Lu Hui <luhui@sipeed.com>
+Date: Mon, 13 Nov 2023 11:54:16 +0800
+Subject: [PATCH 11/12] dts: add light-lpi4a-z15inch-m1.dts
+
+---
+ arch/riscv/dts/Makefile                   | 2 +-
+ arch/riscv/dts/light-lpi4a-z15inch-m1.dts | 1 +
+ 2 files changed, 2 insertions(+), 1 deletion(-)
+ create mode 100644 arch/riscv/dts/light-lpi4a-z15inch-m1.dts
+
+diff --git a/arch/riscv/dts/Makefile b/arch/riscv/dts/Makefile
+index 3c0144e4..022a5a0a 100644
+--- a/arch/riscv/dts/Makefile
++++ b/arch/riscv/dts/Makefile
+@@ -5,7 +5,7 @@ dtb-$(CONFIG_TARGET_SIFIVE_FU540) += hifive-unleashed-a00.dtb
+ dtb-$(CONFIG_TARGET_ICE_C910) += ice-c910.dtb
+ dtb-$(CONFIG_TARGET_LIGHT_EVB_MPW_C910) += light-evb-mpw-c910.dtb
+ dtb-$(CONFIG_TARGET_LIGHT_FPGA_FM_C910) += light-fpga-fm-c910.dtb
+-dtb-$(CONFIG_TARGET_LIGHT_C910) += light-a-ref.dtb light-b-ref.dtb light-a-val.dtb light-b-product.dtb light-a-product.dtb light-ant-ref.dtb light-beagle.dtb light-b-power.dtb light-lpi4a.dtb light-lpi4a-laptop.dtb light-lpi4a-console.dtb light-lpi4a-z14inch-m1.dtb
++dtb-$(CONFIG_TARGET_LIGHT_C910) += light-a-ref.dtb light-b-ref.dtb light-a-val.dtb light-b-product.dtb light-a-product.dtb light-ant-ref.dtb light-beagle.dtb light-b-power.dtb light-lpi4a.dtb light-lpi4a-laptop.dtb light-lpi4a-console.dtb light-lpi4a-z14inch-m1.dtb light-lpi4a-z15inch-m1.dtb
+ 
+ targets += $(dtb-y)
+ 
+diff --git a/arch/riscv/dts/light-lpi4a-z15inch-m1.dts b/arch/riscv/dts/light-lpi4a-z15inch-m1.dts
+new file mode 100644
+index 00000000..086802d0
+--- /dev/null
++++ b/arch/riscv/dts/light-lpi4a-z15inch-m1.dts
+@@ -0,0 +1 @@
++#include "light-lpi4a-laptop.dts"
+-- 
+2.34.1
+
