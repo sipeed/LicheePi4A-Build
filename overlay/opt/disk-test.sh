@@ -1,16 +1,20 @@
 #!/bin/bash
 
 set -x
-sudo sh /opt/ssd-power-cycle.sh
-sleep 1
 
 if (cat /proc/device-tree/model | grep LicheeConsole4A);
 then
 	SD_DEV="/dev/mmcblk1"
 	SSD_DEV="/dev/sda"
 else
-	SD_DEV="/dev/sdb"
-	SSD_DEV="/dev/sda"
+	SD_DEV="/dev/sda"
+	SSD_DEV="/dev/sdb"
+fi
+
+if [ ! -e "$SSD_DEV" ]
+then
+	sudo sh /opt/ssd-power-cycle.sh
+	sleep 1
 fi
 
 BLOCK_SIZE=512
