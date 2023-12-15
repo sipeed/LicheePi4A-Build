@@ -2,6 +2,7 @@
 
 . /opt/ansi_color.sh 
 
+sudo nmcli device down end0
 sudo nmcli radio wifi on
 sudo nmcli dev wifi list | cat
 sudo nmcli dev wifi connect Sipeed_Guest password 'qwert123'

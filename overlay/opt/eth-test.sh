@@ -4,6 +4,8 @@
 
 echo "如果长时间卡住，则测试失败"
 hostname >> ~/test.log
+sudo nmcli device up end0
+sudo nmcli radio wifi off
 echo "eth:" >> ~/test.log
 time -- /opt/busybox wget -O /dev/null http://192.168.0.104:8000/rand100MiB >> ~/test.log
 if [ "$?" = "0" ]
