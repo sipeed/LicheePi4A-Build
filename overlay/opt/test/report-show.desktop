@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=report-show
+Path=/opt/
+Exec=/opt/report-show.sh
+Terminal=true

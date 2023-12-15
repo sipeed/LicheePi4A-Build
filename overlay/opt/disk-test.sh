@@ -22,32 +22,36 @@ fi
 BLOCK_SIZE=512
 BLOCKS=204800 # 100MiB
 
-sudo badblocks -v $SD_DEV $BLOCKS
+hostname >> ~/test.log
+echo "sdcard:" >> ~/test.log
+sudo badblocks -v $SD_DEV $BLOCKS >> ~/test.log
 
 if [ "$?" = "0" ]
 then
 	green
-	echo "sd test ok"
+	echo "sd test ok" >> ~/test.log
 	echo "sd卡测试通过"
 	nocolor
 else
 	red
-	echo "sd test failed"
+	echo "sd test failed" >> ~/test.log
 	echo "sd卡测试失败"
 	nocolor
 	sleep 10000
 fi
 
-sudo badblocks -v $SSD_DEV $BLOCKS
+hostname >> ~/test.log
+echo "ssd:" >> ~/test.log
+sudo badblocks -v $SSD_DEV $BLOCKS >> ~/test.log
 if [ "$?" = "0" ]
 then
 	green
-	echo "sd & ssd test ok"
+	echo "sd & ssd test ok" >> ~/test.log
 	echo "sd卡和ssd测试通过"
 	nocolor
 else
 	red
-	echo "ssd test failed, sd test ok"
+	echo "ssd test failed, sd test ok" >> ~/test.log
 	echo "sd卡测试通过，但是ssd测试失败"
 	nocolor
 fi
