@@ -5,6 +5,8 @@
 sudo nmcli device down end0
 sudo nmcli radio wifi on
 sudo nmcli dev wifi list | cat
+sleep 3
+sudo nmcli dev wifi list | cat
 sudo nmcli dev wifi connect Sipeed_Guest password 'qwert123'
 echo "start wifi test, if wget hang, please close it then restart test"
 echo "开始WIFI测试，如果下载卡住，请重启测试脚本"
