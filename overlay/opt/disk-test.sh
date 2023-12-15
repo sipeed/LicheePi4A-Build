@@ -1,7 +1,9 @@
 #!/bin/bash
 
-set -x
+. /opt/ansi_color.sh
 
+echo "开始磁盘测试"
+echo "disk test start"
 if (cat /proc/device-tree/model | grep LicheeConsole4A);
 then
 	SD_DEV="/dev/mmcblk1"
@@ -24,21 +26,29 @@ sudo badblocks -v $SD_DEV $BLOCKS
 
 if [ "$?" = "0" ]
 then
+	green
 	echo "sd test ok"
-	echo "sd test ok"
+	echo "sd卡测试通过"
+	nocolor
 else
+	red
 	echo "sd test failed"
-	echo "sd test failed"
+	echo "sd卡测试失败"
+	nocolor
 	sleep 10000
 fi
 
 sudo badblocks -v $SSD_DEV $BLOCKS
 if [ "$?" = "0" ]
 then
+	green
 	echo "sd & ssd test ok"
-	echo "sd & ssd test ok"
+	echo "sd卡和ssd测试通过"
+	nocolor
 else
+	red
 	echo "ssd test failed, sd test ok"
-	echo "ssd test failed, sd test ok"
+	echo "sd卡测试通过，但是ssd测试失败"
+	nocolor
 fi
 sleep 10000

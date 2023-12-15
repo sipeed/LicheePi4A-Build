@@ -1,7 +1,9 @@
-#!/bin/sh
+#!/bin/bash
 
 PATH=/opt:$PATH
 export PATH
+
+. /opt/ansi_color.sh
 
 if !(which wchisp);
 then
@@ -17,7 +19,7 @@ fi
 
 EC_BOOT="504"
 
-set -ux
+set -u
 
 echo $EC_BOOT > /sys/class/gpio/export
 echo out > /sys/class/gpio/gpio$EC_BOOT/direction
@@ -40,17 +42,14 @@ boot_low
 
 if [ "$CONFIG_RET" = "0" ]
 then
+	green
 	echo "ec flash done"
-	echo "ec flash done"
-	echo "ec flash done"
-	echo "ec flash done"
-	echo "ec flash done"
-	echo "ec flash done"
+	echo "ec 烧录成功"
+	nocolor
 	sleep 100000
 else
 	echo "ec flash failed"
-	echo "ec flash failed"
-	echo "ec flash failed"
 	echo "try other method"
+	echo "ec 烧录失败，尝试另一种烧录方法"
 	sh /opt/ec_first_flash.sh $1
 fi

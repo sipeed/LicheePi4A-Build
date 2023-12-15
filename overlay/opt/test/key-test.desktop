@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=key-test
+Path=/opt/
+Exec=/opt/key-test.sh
+Terminal=true
