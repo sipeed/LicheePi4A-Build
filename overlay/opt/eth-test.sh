@@ -13,7 +13,7 @@ then
 	echo "有线网络测试通过"
 	nocolor
 else
-	green
+	red
 	echo "eth test failed" >> ~/test.log
 	echo "有线网络测试失败"
 	nocolor
