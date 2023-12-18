@@ -40,6 +40,12 @@ u-boot-with-spl-z14inch-m0-16g.bin: /boot/dtbs/thead/light-lpi4a-z14inch-m0-16g.
 u-boot-with-spl-z14inch-m0.bin:     /boot/dtbs/thead/light-lpi4a-z14inch-m0.dtb
 ```
 
+# LicheeConsole4A screen rotate
+
+```
+/opt/touch-setup.sh
+```
+
 # changelog
 
 2023/12/12: initial import
