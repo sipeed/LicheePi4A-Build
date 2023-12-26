@@ -2,6 +2,6 @@
 Type=Application
 Version=1.0
 Name=stress-test
-Path=/opt/
+Path=/tmp/
 Exec=/opt/stress-test.sh
 Terminal=true
