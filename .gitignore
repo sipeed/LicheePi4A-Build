@@ -9,4 +9,5 @@ overlay/boot/dtbs/*
 overlay/usr/lib/modules/*
 overlay/opt/u-boot-with-spl*.bin
 overlay/opt/vmlinux
+docker/*.sqfs
 build/*
