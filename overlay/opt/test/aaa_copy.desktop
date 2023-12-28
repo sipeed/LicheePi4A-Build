@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=copy-test
+Exec=sh -c "$(dirname %k)/../copy.sh; sleep 1000"
+Terminal=true
