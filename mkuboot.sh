@@ -21,7 +21,7 @@ fi
 
 if [ -z "$COMMIT" ]
 then
-	export COMMIT="918a8c89e056e3462031d6a498bb4fcc0c3526ce"
+	export COMMIT="34dd739d4c4e513e80f9e5afc088e2427090d106"
 fi
 
 set -eux
@@ -54,10 +54,6 @@ cp ../../overlay/boot/logos/sipeed-console.bmp tools/logos/custom.bmp
 make -j$(nproc)
 cp u-boot-with-spl.bin ../u-boot-with-spl-console.bin
 make clean
-make light_lpi4a_z14inch_m1_defconfig
-make -j$(nproc)
-cp u-boot-with-spl.bin ../u-boot-with-spl-z14inch-m1.bin
-make clean
 make light_lpi4a_cluster_defconfig
 make -j$(nproc)
 cp u-boot-with-spl.bin ../u-boot-with-spl-cluster-8g.bin
@@ -66,27 +62,8 @@ make light_lpi4a_cluster_16g_defconfig
 make -j$(nproc)
 cp u-boot-with-spl.bin ../u-boot-with-spl-cluster-16g.bin
 make clean
-make light_lpi4a_z15inch_m1_defconfig
-make -j$(nproc)
-cp u-boot-with-spl.bin ../u-boot-with-spl-z15inch-m1.bin
-make clean
-make light_lpi4a_z14inch_m0_defconfig
-make -j$(nproc)
-cp u-boot-with-spl.bin ../u-boot-with-spl-z14inch-m0.bin
-make clean
 make light_lpi4a_console_16g_defconfig
 make -j$(nproc)
 cp u-boot-with-spl.bin ../u-boot-with-spl-console-16g.bin
 make clean
-make light_lpi4a_z14inch_m0_16g_defconfig
-make -j$(nproc)
-cp u-boot-with-spl.bin ../u-boot-with-spl-z14inch-m0-16g.bin
-make clean
-make light_lpi4a_z14inch_m2_defconfig
-make -j$(nproc)
-cp u-boot-with-spl.bin ../u-boot-with-spl-z14inch-m2.bin
-make clean
-make light_lpi4a_z14inch_m2_16g_defconfig
-make -j$(nproc)
-cp u-boot-with-spl.bin ../u-boot-with-spl-z14inch-m2-16g.bin
 mv ../u-boot*.bin ../../overlay/opt/

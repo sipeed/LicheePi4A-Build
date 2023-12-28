@@ -1,0 +1,47 @@
+From b3d12aeea9717195991240d9a39fc26ec720303e Mon Sep 17 00:00:00 2001
+From: Lu Hui <luhui@sipeed.com>
+Date: Wed, 27 Dec 2023 11:07:46 +0800
+Subject: [PATCH 2/3] riscv: dts: add light-lpi4a-console
+
+---
+ arch/riscv/dts/Makefile                |  1 +
+ arch/riscv/dts/light-lpi4a-console.dts | 15 +++++++++++++++
+ 2 files changed, 16 insertions(+)
+ create mode 100644 arch/riscv/dts/light-lpi4a-console.dts
+
+diff --git a/arch/riscv/dts/Makefile b/arch/riscv/dts/Makefile
+index 54601c03..f9451918 100644
+--- a/arch/riscv/dts/Makefile
++++ b/arch/riscv/dts/Makefile
+@@ -7,6 +7,7 @@ dtb-$(CONFIG_TARGET_LIGHT_EVB_MPW_C910) += light-evb-mpw-c910.dtb
+ dtb-$(CONFIG_TARGET_LIGHT_FPGA_FM_C910) += light-fpga-fm-c910.dtb
+ dtb-$(CONFIG_TARGET_LIGHT_C910) += light-a-ref.dtb light-b-ref.dtb light-a-val.dtb light-b-product.dtb light-a-product.dtb light-ant-ref.dtb light-beagle.dtb light-b-power.dtb light-lpi4a.dtb light-milkv-meles.dtb
+ dtb-$(CONFIG_TARGET_LIGHT_C910) += light-lpi4a-laptop.dtb
++dtb-$(CONFIG_TARGET_LIGHT_C910) += light-lpi4a-console.dtb
+ 
+ targets += $(dtb-y)
+ 
+diff --git a/arch/riscv/dts/light-lpi4a-console.dts b/arch/riscv/dts/light-lpi4a-console.dts
+new file mode 100644
+index 00000000..3b32bd5a
+--- /dev/null
++++ b/arch/riscv/dts/light-lpi4a-console.dts
+@@ -0,0 +1,15 @@
++#include "light-lpi4a-laptop.dts"
++
++/ {
++};
++
++&panel0 {
++	status = "okay";
++	compatible = "mingjun,mj070bi30ia2";
++	backlight = <&lcd_backlight>;
++	// 5v power cycle
++	// TODO: move into regulator
++	reset-gpios     = <&pcal6408ahk_c 0 0>; /* active low  */
++	/delete-property/ lcd-en-gpios;
++	/delete-property/ lcd-bias-en-gpios;
++};
+-- 
+2.41.0
+

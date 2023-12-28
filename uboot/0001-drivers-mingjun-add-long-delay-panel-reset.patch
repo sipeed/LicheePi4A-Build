@@ -1,0 +1,94 @@
+From cea3b168d602b8d9e6b2675115f793b12041dead Mon Sep 17 00:00:00 2001
+From: Lu Hui <luhui@sipeed.com>
+Date: Wed, 27 Dec 2023 11:05:35 +0800
+Subject: [PATCH 1/3] drivers: mingjun: add long delay panel reset
+
+---
+ drivers/video/mingjun-070bi30ia2.c | 43 ++++++++++++------------------
+ 1 file changed, 17 insertions(+), 26 deletions(-)
+
+diff --git a/drivers/video/mingjun-070bi30ia2.c b/drivers/video/mingjun-070bi30ia2.c
+index 02e43a89..7d7388c7 100644
+--- a/drivers/video/mingjun-070bi30ia2.c
++++ b/drivers/video/mingjun-070bi30ia2.c
+@@ -261,7 +261,6 @@ struct mj070bi30ia2_desc {
+ };
+ 
+ struct mj070bi30ia2_panel_priv {
+-	struct udevice *backlight;
+ 	struct gpio_desc reset;
+ 	const struct mj070bi30ia2_desc *desc;
+ };
+@@ -325,17 +324,6 @@ static int mj070bi30ia2_panel_prepare(struct udevice *panel)
+ 	struct mj070bi30ia2_panel_priv *priv = dev_get_priv(panel);
+ 	int ret;
+ 
+-	/* reset panel */
+-	ret = dm_gpio_set_value(&priv->reset, true);
+-	if (ret)
+-		return ret;
+-	mdelay(1);
+-
+-	ret = dm_gpio_set_value(&priv->reset, false);
+-	if (ret)
+-		return ret;
+-	mdelay(10);
+-
+ 	return 0;
+ }
+ 
+@@ -368,12 +356,6 @@ static int mj070bi30ia2_panel_enable(struct udevice *panel)
+ 	if (ret)
+ 		return ret;
+ 
+-#if 0
+-	ret = backlight_enable(priv->backlight);
+-	if (ret)
+-		return ret;
+-#endif
+-
+ 	return 0;
+ }
+ 
+@@ -423,13 +405,22 @@ static int mj070bi30ia2_panel_ofdata_to_platdata(struct udevice *dev)
+ 			&priv->reset, GPIOD_IS_OUT);
+ 	if (ret) {
+ 		dev_err(dev, "Warning: cannot get reset GPIO\n");
+-		return ret;
+-	}
+-
+-	ret = uclass_get_device_by_phandle(UCLASS_PANEL_BACKLIGHT, dev,
+-					   "backlight", &priv->backlight);
+-	if (ret) {
+-		dev_err(dev, "Cannot get backlight: ret=%d\n", ret);
++                if (ret != -ENOENT)
++                        return ret;
++	} else {
++		/* not a bug, but uboot's regulator is buggy,
++                I haven't more time to fix it, so put it here
++                */
++                /* reset panel */
++                ret = dm_gpio_set_value(&priv->reset, false);
++                if (ret)
++                        return ret;
++                mdelay(500);
++
++                ret = dm_gpio_set_value(&priv->reset, true);
++                if (ret)
++                        return ret;
++                mdelay(100);
+ 	}
+ 
+ 	/* TODO: get lanes, format and mode from dtb */
+@@ -458,7 +449,7 @@ static int mj070bi30ia2_panel_remove(struct udevice *panel)
+ {
+ 	struct mj070bi30ia2_panel_priv *priv = dev_get_priv(panel);
+ 
+-	return dm_gpio_set_value(&priv->reset, true);
++	return 0;
+ }
+ 
+ static const struct mj070bi30ia2_desc mj070bi30ia2_desc = {
+-- 
+2.41.0
+

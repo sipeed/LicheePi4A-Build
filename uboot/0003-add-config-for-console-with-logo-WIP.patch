@@ -1,19 +1,19 @@
-From 9ab24547dc4c6943bf099680b49934222c3475db Mon Sep 17 00:00:00 2001
+From 31b24143fe4f63e8a987646d1a33de9c0d801e66 Mon Sep 17 00:00:00 2001
 From: Lu Hui <luhui@sipeed.com>
-Date: Wed, 8 Nov 2023 11:09:00 +0800
-Subject: [PATCH 9/9] add light_lpi4a_z14inch_m1_defconfig
+Date: Wed, 27 Dec 2023 11:08:12 +0800
+Subject: [PATCH 3/3] add config for console with logo (WIP)
 
 ---
- configs/light_lpi4a_z14inch_m1_defconfig | 110 +++++++++++++++++++++++
- 1 file changed, 110 insertions(+)
- create mode 100644 configs/light_lpi4a_z14inch_m1_defconfig
+ ...ight_lpi4a_console_16g_with_logo_defconfig | 112 ++++++++++++++++++
+ 1 file changed, 112 insertions(+)
+ create mode 100644 configs/light_lpi4a_console_16g_with_logo_defconfig
 
-diff --git a/configs/light_lpi4a_z14inch_m1_defconfig b/configs/light_lpi4a_z14inch_m1_defconfig
+diff --git a/configs/light_lpi4a_console_16g_with_logo_defconfig b/configs/light_lpi4a_console_16g_with_logo_defconfig
 new file mode 100644
-index 00000000..932fc91c
+index 00000000..c170b4db
 --- /dev/null
-+++ b/configs/light_lpi4a_z14inch_m1_defconfig
-@@ -0,0 +1,110 @@
++++ b/configs/light_lpi4a_console_16g_with_logo_defconfig
+@@ -0,0 +1,112 @@
 +CONFIG_RISCV=y
 +CONFIG_SPL_MMC_SUPPORT=y
 +CONFIG_ENV_SIZE=0x20000
@@ -34,8 +34,9 @@ index 00000000..932fc91c
 +# CONFIG_SPL_LEGACY_IMAGE_SUPPORT is not set
 +CONFIG_SPL_RAM_SUPPORT=y
 +CONFIG_SPL_RAM_DEVICE=y
-+CONFIG_SYS_PROMPT="Z14INCH-M1 # "
++CONFIG_SYS_PROMPT="LicheeConsole4A 16G # "
 +CONFIG_DDR_LP4X_3733_DUALRANK=y
++CONFIG_DDR_ROW16=y
 +# CONFIG_DDR_LP4_3733_DUALRANK is not set
 +CONFIG_DDR_BOARD_CONFIG=y
 +CONFIG_CMD_BOOT_SLAVE=y
@@ -52,7 +53,7 @@ index 00000000..932fc91c
 +# CONFIG_ISO_PARTITION is not set
 +CONFIG_PARTITION_TYPE_GUID=y
 +CONFIG_OF_EMBED=y
-+CONFIG_DEFAULT_DEVICE_TREE="light-lpi4a-z14inch-m1"
++CONFIG_DEFAULT_DEVICE_TREE="light-lpi4a-console"
 +CONFIG_ENV_IS_IN_MMC=y
 +CONFIG_SYS_RELOC_GD_ENV_ADDR=y
 +CONFIG_SPL_CLK=y
@@ -103,7 +104,7 @@ index 00000000..932fc91c
 +# CONFIG_SPL_USE_TINY_PRINTF is not set
 +# CONFIG_EFI_LOADER is not set
 +# CONFIG_LIGHT_SEC_BOOT is not set
-+CONFIG_DEFAULT_FDT_FILE="thead/light-lpi4a-z14inch-m1.dtb"
++CONFIG_DEFAULT_FDT_FILE="thead/light-lpi4a-console-16g.dtb"
 +CONFIG_BOARD_LATE_INIT=y
 +CONFIG_ENV_VARS_UBOOT_RUNTIME_CONFIG=y
 +CONFIG_DM_VIDEO=y
@@ -114,8 +115,9 @@ index 00000000..932fc91c
 +CONFIG_VIDEO_BRIDGE=y
 +CONFIG_DM_PCA953X=y
 +CONFIG_VIDEO_VS_DPU=y
-+CONFIG_SYS_CONSOLE_ENV_OVERWRITE=y
++CONFIG_VIDEO_LCD_ILITEK_ILI9881C=y
 +CONFIG_VIDEO_LCD_MINGJUN_070BI30IA2=y
++CONFIG_VIDEO_LCD_CUSTOM_LOGO=y
 +CONFIG_VIDEO_DW_DSI_LIGHT=y
 +CONFIG_VIDEO_DW_DPHY=y
 +CONFIG_VIDEO_DW_DSI_HOST=y
@@ -125,5 +127,5 @@ index 00000000..932fc91c
 +CONFIG_DDR_REGU_0V8=800000
 +CONFIG_DDR_REGU_1V1=1100000
 -- 
-2.34.1
+2.41.0
 
