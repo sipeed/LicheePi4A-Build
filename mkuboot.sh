@@ -69,3 +69,13 @@ make -j$(nproc)
 cp u-boot-with-spl.bin ../u-boot-with-spl-console-16g.bin
 make clean
 mv ../u-boot*.bin ../../overlay/opt/
+make light_lpi4a_z14inch_m0_defconfig
+make -j$(nproc)
+cp u-boot-with-spl.bin ../u-boot-with-spl-z14inch-m0.bin
+make clean
+mv ../u-boot*.bin ../../overlay/opt/
+make light_lpi4a_z14inch_m0_16g_defconfig
+make -j$(nproc)
+cp u-boot-with-spl.bin ../u-boot-with-spl-z14inch-m0-16g.bin
+make clean
+mv ../u-boot*.bin ../../overlay/opt/
